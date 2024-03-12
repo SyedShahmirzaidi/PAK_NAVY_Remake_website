@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introduction Video</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  #video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  video {
+    width: 100%;
+    height: auto;
+  }
+  #skip-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: none;
+  }
+</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+
+<div id="video-container">
+  <video id="intro-video" controls autoplay>
+    <source src="pak navy intro.mp4" type="video/mp4">
+   
+  </video>
+  <a href="Home.html"><button id="skip-button">Skip</button></a>
+</div>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var introVideo = document.getElementById('intro-video');
+    var skipButton = document.getElementById('skip-button');
+
+    // Show skip button after 15 seconds
+    setTimeout(function() {
+      skipButton.style.display = 'block';
+    }, 15000);
+
+    // Function to skip video
+    function skipVideo() {
+      introVideo.pause();
+      introVideo.currentTime = 0;
+      introVideo.style.display = 'none';
+      skipButton.style.display = 'none';
+    }
+
+    // Event listener for skip button
+    skipButton.addEventListener('click', function() {
+      skipVideo();
+    });
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
